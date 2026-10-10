@@ -1,0 +1,16 @@
+{
+  "name": "@new-pos/devices",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    }
+  },
+  "dependencies": {
+    "@new-pos/core": "0.1.0"
+  }
+}

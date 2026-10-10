@@ -1,0 +1,31 @@
+{
+  "name": "new-pos-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "New POS System (working name) - Canadian gas station, convenience and grocery POS for Windows 11",
+  "license": "Apache-2.0",
+  "author": "Sang-Mi Consulting Ltd (Peter Choi)",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ],
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "typecheck": "tsc -p packages/core && tsc -p packages/importers && tsc -p packages/devices && tsc -p apps/pos-desktop",
+    "test": "vitest run",
+    "build": "npm run build -w @new-pos/pos-desktop",
+    "dist:win": "npm run dist -w @new-pos/pos-desktop"
+  },
+  "devDependencies": {
+    "@types/node": "24.10.1",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "electron@44.7.0": true,
+    "electron-winstaller": false
+  }
+}

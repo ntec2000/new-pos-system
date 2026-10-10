@@ -1,0 +1,16 @@
+New POS System (working name)
+Copyright 2026 Sang-Mi Consulting Ltd (Peter Choi)
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+The Apache License does not grant permission to use the trade names, trademarks,
+service marks, or product names of the Licensor (section 6).
+
+This software is an independent clean-room implementation. It contains no code,
+images or documentation from Logivision L-POS / L-BOSS. Those names are used in the
+documentation only to describe compatibility and the features this project was
+designed to be familiar with.
+
+Third-party components bundled in the Windows build:
+- Electron (MIT) - https://github.com/electron/electron
+- React / React DOM (MIT) - https://github.com/facebook/react
+- sql.js (MIT) - https://github.com/sql-js/sql.js (SQLite is public domain)
