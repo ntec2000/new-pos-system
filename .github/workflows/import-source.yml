@@ -1,0 +1,39 @@
+name: import-source
+# One-time bootstrap: imports the verified v0.1.0 source archive into the repository.
+on:
+  workflow_dispatch:
+    inputs:
+      url:
+        description: Source archive URL
+        required: true
+      sha256:
+        description: Expected SHA-256 of the archive
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Download and verify archive
+        env:
+          URL: ${{ inputs.url }}
+          SHA: ${{ inputs.sha256 }}
+        run: |
+          curl -fsSL "$URL" -o /tmp/src.tar.gz
+          echo "$SHA  /tmp/src.tar.gz" | sha256sum -c -
+      - name: Extract over working tree
+        run: |
+          rm -f README.md
+          tar -xzf /tmp/src.tar.gz -C .
+          git status --short | head -100
+      - name: Commit
+        run: |
+          git config user.name "Peter Choi"
+          git config user.email "45743076+ntec2000@users.noreply.github.com"
+          git add -A
+          git commit -m "feat: New POS System v0.1.0 pilot source"
+          git push
